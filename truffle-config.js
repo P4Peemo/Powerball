@@ -69,7 +69,7 @@ module.exports = {
     rinkeby: {
       provider: () => new HDWalletProvider({
         privateKeys: private_keys,
-        providerOrUrl: 'https://rinkeby.infura.io/v3/26e5ecc9cbd64c3b8464d4ba47593326',
+        providerOrUrl: process.env.INFURA_API_URL,
         numberOfAddress: 2
       }),
       network_id: 4,       // Rinkeby's id
