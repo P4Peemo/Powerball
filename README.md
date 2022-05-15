@@ -40,3 +40,27 @@ When deploy the contract, the ticket price will have to be provided. And the man
 ## Test
 
 To test the contract, run `truffle test` in the project root directory.
+
+## Deployment on TestNet (Rinkeby)
+
+(**Note**: Please install the `dot-env` package before uploading your code. Otherwise, your personal information will be exposed.)
+
+To deploy the contract, the simplest way is to use a node provider, here we use [Infura](https://infura.io/) for example. Create a project after signing up at Infura, switch the network to `Rinkeby` for the endpoints. Copy and past the provider endpoint url into `.env` file created in the root folder, named as `INFURA_API_URL`.
+
+Then add your Metamask account **private key** and your [**secret phrase**](https://metamask.zendesk.com/hc/en-us/articles/360060826432-What-is-a-Secret-Recovery-Phrase-and-how-to-keep-your-crypto-wallet-secure), named as `PRIVATE_KEY_0` and `SECRET_KEY` respectively. now the `.env` file will look like this:
+
+```bash
+PRIVATE_KEY_0=$YOUR_ACCOUNT_PRIVATE_KEY
+SECRET_KEY=$YOUR_SECRET_RECOVERY_PHRASE_FOR_METAMASK
+INFURA_API_URL=$YOUR_INFURA_ENDPOINT_URL
+```
+
+Now, make sure your account has enough balance to create the contract on the TestNet. If you are short of ether, you can visit [here](https://rinkebyfaucet.com/) to get some.
+
+In your terminal, run the following command:
+
+```bash
+truffle migrate --network rinkeby
+```
+
+If everything goes well, record the output and save the `contract address` field for later use. Now we have deployed the contract address successfully.
