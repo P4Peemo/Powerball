@@ -57,6 +57,9 @@ INFURA_API_URL=$YOUR_INFURA_ENDPOINT_URL
 
 Now, make sure your account has enough balance to create the contract on the TestNet. If you are short of ether, you can visit [here](https://rinkebyfaucet.com/) to get some.
 
+The `ticketPrize` for your contract can be modified by changing the parameter passed in `migrations/1_powerball_migration.js`, the default value is 10 `Wei`.
+Note that the value can only be an integer.
+
 In your terminal, run the following command:
 
 ```bash
@@ -64,3 +67,11 @@ truffle migrate --network rinkeby
 ```
 
 If everything goes well, record the output and save the `contract address` field for later use. Now we have deployed the contract address successfully.
+
+## Redeployment
+
+After modifying your solidity code, you need to redeploy (create a new) contract to see the changes in effect. Simply run the following command:
+
+```bash
+truffle migrate --reset --network rinkeby
+```
